@@ -5,7 +5,6 @@ import android.app.Application;
 import com.blankj.utilcode.utils.CrashUtils;
 import com.blankj.utilcode.utils.LogUtils;
 import com.blankj.utilcode.utils.Utils;
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  * <pre>
@@ -27,12 +26,12 @@ public class UtilsApp extends Application {
     public void onCreate() {
         super.onCreate();
         // 内存泄露检查工具
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+        /*if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        LeakCanary.install(this);*/
         appContext = this;
         Utils.init(appContext);
         CrashUtils.getInstance().init();
